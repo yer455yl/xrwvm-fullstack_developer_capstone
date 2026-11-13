@@ -10,4 +10,4 @@ def analyze_sentiment(input_txt):
     score=sia.polarity_scores(input_txt)["compound"]
     return jsonify(sentiment="positive" if score>=0.05 else "negative" if score<=-0.05 else "neutral",score=score)
 if __name__=="__main__":
-    app.run(host="0.0.0.0",port=5050)
+    app.run(host="127.0.0.1",port=5050)

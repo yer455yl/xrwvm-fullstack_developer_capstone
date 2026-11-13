@@ -14,8 +14,8 @@ Project: Best Cars — Dealership Reviews Portal
 
 ## Required before final submission
 
-- Publish finished code to the personal GitHub fork.
-- Confirm a successful GitHub Actions run and capture `CICD.png`.
+- Finished code published to https://github.com/yer455yl/xrwvm-fullstack_developer_capstone.
+- GitHub Actions run #1 succeeded: https://github.com/yer455yl/xrwvm-fullstack_developer_capstone/actions/runs/43380739970. Screenshot saved as `evidence/local/CICD.png`.
 - Launch in the assigned lab/cloud environment; check the deployed URL.
 - Capture the four deployment screenshots with the actual deployment URL visible.
 - Review the course's 28 submission tasks and capture any lab-specific evidence still missing.
