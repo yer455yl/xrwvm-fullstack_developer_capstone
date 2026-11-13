@@ -1,0 +1,24 @@
+name: Best Cars CI
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci && npm run build
+        working-directory: server/frontend
+      - run: pip install -r server/requirements.txt -r server/djangoapp/microservices/requirements.txt
+      - run: python -m nltk.downloader vader_lexicon
+      - run: python manage.py test && python manage.py makemigrations --check --dry-run
+        working-directory: server
+      - run: python -m unittest test_sentiment.py
+        working-directory: server/djangoapp/microservices
+      - run: npm ci && npm test
+        working-directory: server/database
+      - run: docker build -t bestcars-web .
